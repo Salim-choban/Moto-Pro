@@ -1,0 +1,1336 @@
+:root {
+  --bg: #0b0e14;
+  --surface: #151a24;
+  --surface2: #202633;
+  --text: #f5f6fa;
+  --muted: #a9b1c0;
+  --accent: #ff6b35;
+  --border: #2b3240;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button, select {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button:focus-visible, a:focus-visible,
+input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.header {
+  min-height: 76px;
+  padding: 10px 15px;
+  background: #10141c;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.logo {
+  display:flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 25px;
+  font-weight: 900;
+  white-space: nowrap;
+  text-decoration: none;
+  direction: ltr;
+}
+.logo img{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.logo span, .hero h1 span {
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap:nowrap;
+  overflow: auto;
+  justify-content: center;
+}
+
+.nav a {
+ display: inline-flex;
+ align-items: center;
+ gap: 4px;
+ text-decoration: none;
+ font-size: 12px;
+ white-space: nowrap;
+}
+.nav a i{
+  color: var(--accent);
+  font-size: 0.9em;
+  transition: color 0.3s ease; 
+}
+.nav a:hover {
+  color: var(--accent);
+}
+
+.cart-button {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface2);
+  color: white;
+  padding: 9px 13px;
+  white-space: nowrap;
+}
+
+#cartCount {
+  display: inline-grid;
+  place-items: center;
+  min-width: 23px;
+  height: 23px;
+  margin-right: 4px;
+  padding: 0 5px;
+  border-radius: 30px;
+  background: var(--accent);
+  color: white;
+  font-size: 12px;
+}
+
+.hero {
+  min-height: 80vh;
+  width: 100%;
+  padding: 60px 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  background:linear-gradient(rgba(11,14,20,0.45),rgba(11,14,20,0.45)),
+  url('https://png.pngtree.com/thumb_back/fh260/background/20241224/pngtree-high-performance-motorcycle-with-smoke-clouds-adding-a-sense-of-action-image_16811277.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 30%;
+}
+.eyebrow {
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #ffffff;
+  margin-bottom: 15px ;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+.hero h1 span{
+  color: var(--accent);
+}
+
+.hero-description {
+  color: var(--muted);
+  max-width: 480px;
+}
+primary-button, .checkout-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 20px;
+  margin-top: 20px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+  transition: 0.2s;
+}
+
+.primary-button:hover, .checkout-button:hover {
+  background: #ff8559;
+  transform: translateY(-2px);
+}
+
+.hero-art {
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.hero-circle {
+  width: min(280px, 80%);
+  aspect-ratio: 1;
+  border: 1px solid #754c3b;
+  border-radius: 50%;
+  background: radial-gradient(circle, #512c1e, #171b24 70%);
+}
+
+.hero-bike {
+  position: absolute;
+  font-size: clamp(110px, 17vw, 180px);
+  filter: drop-shadow(0 15px 12px #0008);
+}
+
+.hero-art p {
+  position: absolute;
+  bottom: 0;
+  color: #d5ad99;
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 24px 6%;
+  text-align: center;
+  background: #11151d;
+  border-block: 1px solid var(--border);
+}
+
+.benefits strong {
+  font-size: 14px;
+}
+.mode-btn {
+  background-color: transparent;
+  border: 1px solid #ff4500; /* الإطار البرتقالي الافتراضي أو حسب لون إطارك */
+  color: #ffffff;
+  font: inherit;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 6px;
+  display: inline-flex; /* لكي يأخذ حجم النص فقط ولا يمتد بعرض الصفحة */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: auto; /* إلغاء التمدد */
+  transition: all 0.3s ease;
+}
+
+/* تأثير امتلائه باللون البرتقالي عند وضع الماوس عليه تماماً مثل زر الهاتف */
+.mode-btn:hover {
+  background-color: #ff4500; /* يتحول لبرتقالي بالكامل عند المرور */
+  color: #ffffff;
+}
+.products-section {
+  padding: 60px 6%;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.section-heading h2, .info-section h2 {
+  font-size: clamp(25px, 4vw, 34px);
+  margin: 5px 0;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.product-total {
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 8px 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr 210px 230px;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+.toolbar input, .toolbar select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+
+.toolbar input::placeholder {
+  color: #9099aa;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: #80513b;
+}
+
+.product-image {
+  position: relative;
+  height: 180px;
+  background: var(--surface2);
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.category-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 8px;
+  border-radius: 7px;
+  background: #10141ce8;
+  color: #ffc0a6;
+  font-size: 11px;
+}
+
+.product-info {
+  padding: 14px;
+}
+
+.product-info h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.product-description {
+  min-height: 43px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.product-price {
+  color: var(--accent);
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.add-button {
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.add-button:hover {
+  background: #ff8559;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 35px 10px;
+  color: var(--muted);
+}
+
+.hidden {
+  display: none !important;
+}
+.info-section {
+  margin: 0 6% 40px;
+  padding: 40px 20px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  background: linear-gradient(135deg, #1b202b, #11151d);
+}
+
+.info-section .muted {
+  max-width: 600px;
+  margin: auto;
+}
+
+.footer {
+  padding: 25px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background: #10141c;
+  border-top: 1px solid var(--border);
+}
+
+.footer p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* سلة المشتريات */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: #000b;
+  backdrop-filter: blur(3px);
+}
+
+.cart-panel {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: min(460px, 100%);
+  display: flex;
+  flex-direction: column;
+  background: #11151e;
+  border-right: 1px solid var(--border);
+  box-shadow: 10px 0 40px #0005;
+  animation: slide-in 0.2s ease-out;
+}
+
+@keyframes slide-in {
+  from { transform: translateX(-25px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.cart-header {
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-header h2 {
+  font-size: 19px;
+}
+
+.close-button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface2);
+  color: white;
+  font-size: 17px;
+}
+
+.close-button:hover {
+  color: var(--accent);
+}
+
+.cart-items {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 12px 16px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 75px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-item img {
+  width: 75px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 9px;
+  background: var(--surface2);
+}
+.cart-item h3 {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cart-item-price {
+  margin-top: 4px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 8px;
+}
+
+.quantity-controls button {
+  width: 28px;
+  height: 28px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: white;
+}
+
+.quantity-controls span {
+  min-width: 15px;
+  text-align: center;
+}
+
+.remove-button {
+  align-self: start;
+  padding: 5px 0;
+  background: none;
+  border: none;
+  color: #ff8880;
+  font-size: 12px;
+}
+
+.cart-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 52px;
+  margin-bottom: 12px;
+}
+
+.cart-empty h3 {
+  font-size: 20px;
+}
+
+.cart-empty .primary-button {
+  margin-top: 16px;
+}
+
+.cart-footer {
+  padding: 18px;
+  border-top: 1px solid var(--border);
+  background: #151a24;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.total-row strong {
+  color: var(--accent);
+  font-size: 17px;
+}
+
+.checkout-button {
+  width: 100%;
+  margin: 0;
+}
+
+.demo-note {
+  margin-top: 9px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.checkout-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(430px, calc(100% - 25px));
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #151a24;
+  text-align: center;
+}
+
+.checkout-panel > .close-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.success-icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin: 12px auto 18px;
+  border-radius: 50%;
+  background: #173b2b;
+  color: #80e8a5;
+  font-size: 30px;
+}
+
+.checkout-panel h2 {
+  margin-bottom: 10px;
+  font-size: 21px;
+}
+
+.checkout-summary {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--surface2);
+  text-align: right;
+  white-space: pre-line;
+  font-size: 13px;
+}
+.toast {
+  position: fixed;
+  z-index: 200;
+  bottom: 22px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  max-width: calc(100% - 30px);
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: #253a2d;
+  color: #d9ffe5;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 1000px) {
+  .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .nav {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 760px) {
+  .header {
+    padding: 10px 3%;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 4px 0;
+  }
+
+  .nav a {
+    white-space: nowrap;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 35px 5%;
+    gap: 10px;
+  }
+
+  .hero-description {
+    margin: auto;
+  }
+
+  .hero-art {
+    min-height: 210px;
+  }
+
+  .hero-circle {
+    width: 200px;
+  }
+
+  .hero-bike {
+    font-size: 125px;
+  }
+
+  .benefits {
+    padding: 18px 3%;
+    gap: 7px;
+  }
+
+  .benefits strong {
+    font-size: 11px;
+  }
+  .products-section {
+    padding: 40px 4%;
+  }
+
+  .toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .toolbar input {
+    grid-column: 1 / -1;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-image {
+    height: 145px;
+  }
+
+  .product-info {
+    padding: 10px;
+  }
+
+  .product-info h3 {
+    font-size: 14px;
+  }
+
+  .product-description {
+    font-size: 11px;
+  }
+
+  .product-bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image {
+    height: 210px;
+  }
+
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar input {
+    grid-column: auto;
+  }
+}
+/* نافذة السلة */
+.cart-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-modal.active {
+  display: flex !important;
+}
+
+.cart-content {
+  background-color: var(--surface);
+  width: 90%;
+  max-width: 450px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 20px;
+  color: var(--text);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+
+.close-btn {
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.close-btn:hover {
+  color: var(--accent);
+}
+
+.cart-body {
+  padding: 20px 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.cart-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.total-price {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.checkout-btn {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}/* 1. إصلاح القائمة العلوية لتناسب الشاشات الصغيرة */
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* تقليل المسافات بين الروابط */
+}
+
+.nav a {
+  font-size: 13px; /* تصغير الخط قليلاً للشاشات الصغيرة */
+  white-space: nowrap; /* منع انقسام الكلمة */
+  padding: 4px 6px;
+}
+
+/* 2. إصلاح عرض صور الدراجات لكي تظهر كاملة بدون قطع */
+.card-img, 
+.motorcycle-card img,
+.product-card img {
+  width: 100%;
+  height: 200px; /* أو الارتفاع المعتمد لديك */
+  object-fit: contain; /* إظهار الصورة كاملة داخل الإطار دون اقتطاع */
+  background-color: #ffffff; /* خلفية بيضاء متناسقة مع الصور */
+  border-radius: 8px;
+}
+/* ===== وضع الهاتف ===== */
+body.mobile-mode {
+  max-width: 400px !important;
+  margin: 0 auto !important;
+  background: #0f0f0f !important;
+  overflow-x: hidden !important;
+  box-shadow: 0 0 60px rgba(0,0,0,0.85);
+}
+
+/* إطار الهاتف */
+body.mobile-mode::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 100vh;
+  border: 10px solid #1a1a1a;
+  border-radius: 28px;
+  pointer-events: none;
+  z-index: 9998;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7);
+}
+
+/* ===== الهيدر ===== */
+body.mobile-mode .header,
+body.mobile-mode header {
+  padding: 10px 12px !important;
+  display: block !important;
+}
+
+/* الصف الأول: السلة + العنوان في سطر واحد */
+body.mobile-mode .header-top,
+body.mobile-mode header > div:first-of-type,
+body.mobile-mode .header > div:first-child {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin-bottom: 8px !important;
+}
+
+/* السلة على اليسار */
+body.mobile-mode .cart-btn,
+body.mobile-mode .cart,
+body.mobile-mode [class*="cart"] {
+  order: 1 !important;
+  margin: 0 !important;
+}
+
+/* العنوان على اليمين */
+body.mobile-mode .logo,
+body.mobile-mode [class*="logo"] {
+  order: 2 !important;
+  margin: 0 !important;
+  font-size: 18px !important;
+}
+
+/* القائمة تحتهم */
+body.mobile-mode .nav,
+body.mobile-mode nav {
+  display: flex !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  margin-top: 6px !important;
+}
+
+body.mobile-mode .nav a {
+  font-size: 12px !important;
+  padding: 4px 2px !important;
+  flex: 1;
+  text-align: center;
+}
+
+/* البطاقات */
+body.mobile-mode .products-grid {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+}
+
+body.mobile-mode .product-img {
+  height: 120px !important;
+}
+
+/* إخفاء الزر أثناء وضع الهاتف */
+body.mobile-mode .mobile-toggle-btn {
+  display: none !important;
+}
+/* ===== إصلاح ظهور السلة داخل إطار الهاتف ===== */
+body.mobile-mode .cart-sidebar,
+body.mobile-mode .cart-panel,
+body.mobile-mode .cart-drawer,
+body.mobile-mode .shopping-cart,
+body.mobile-mode [class*="cart-sidebar"],
+body.mobile-mode [class*="cart-panel"],
+body.mobile-mode [class*="cart-drawer"],
+body.mobile-mode .modal,
+body.mobile-mode .sidebar {
+  max-width: 400px !important;
+  width: 100% !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  border-radius: 0 !important;
+  z-index: 10000 !important;
+}
+
+/* إذا كانت السلة تظهر من اليمين */
+body.mobile-mode .cart-sidebar.open,
+body.mobile-mode .cart-panel.active,
+body.mobile-mode [class*="cart"].open {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+/* ===== ترتيب البحث والفلاتر في وضع الهاتف ===== */
+
+body.mobile-mode .toolbar,
+body.mobile-mode .filters,
+body.mobile-mode .search-filters,
+body.mobile-mode [class*="toolbar"] {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  padding: 0 10px !important;
+}
+
+/* شريط البحث يأخذ العرض كامل */
+body.mobile-mode #searchInput,
+body.mobile-mode input[type="search"],
+body.mobile-mode .search-box,
+body.mobile-mode [class*="search"] {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+/* افتراضياً في وضع الكمبيوتر: زر العودة مخفي وزر الهاتف ظاهر */
+#desktop-view-btn {
+  display: none !important;
+}
+
+#mobileToggleBtn {
+  display: inline-block !important;
+}
+
+/* عندما يتفعل وضع الهاتف: يختفي زر الهاتف ويظهر زر العودة للكمبيوتر مباشرة */
+body.is-mobile-view #mobileToggleBtn {
+  display: none !important;
+}
+
+body.is-mobile-view #desktop-view-btn {
+  display: inline-block !important;
+}
+
+/* تنسيق إطار الهاتف عند التفعيل */
+body.is-mobile-view {
+  max-width: 430px;
+  margin: 0 auto;
+  border: 3px solid #333;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+}
+#mobileToggleBtn, #desktop-view-btn {
+  background-color: #1f1f1f !important;
+  color: #ffffff !important;
+  border: 2px solid #ff5722 !important;
+  padding: 10px 20px !important;
+  border-radius: 8px !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+}
+
+#mobileToggleBtn:hover, #desktop-view-btn:hover {
+  background-color: #ff5722 !important;
+  color: #ffffff !important;
+}
+/* مسافة الروابط في وضع الكمبيوتر فقط */
+.nav {
+  display: flex !important;
+  gap: 35px !important; /* ضع هنا المسافة التي تعجبك للكمبيوتر */
+}
+
+/* مسافة الروابط في وضع الهاتف فقط (يتم فصلها تماماً عن الكمبيوتر) */
+mobile-view .nav {
+  gap: 15px !important;
+  flex-wrap:wrap !important;
+  justify-content: center !important; /* ضع هنا المسافة الصغيرة الخاصة بالهاتف */
+}
+/* تنسيق عام للقسم */
+.contact-section {
+  background-color: #121212;
+  color: #ffffff;
+  padding: 60px 10px; /* تقليص الهوامش الجانبية لمنع الخروج عن الشاشة */
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  width: 100%;
+  box-sizing: border-box; /* مهم جداً لحساب الحشو ضمن العرض الكلي */
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* العنوان */
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: #ff5722; /* اللون البرتقالي المميز لهويتك البصرية */
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: #b0b0b0;
+    font-size: 1rem;
+}
+
+/* شبكة المحتوى (البطاقات والنموذج) */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr ;
+    gap: 15px;
+    max-width: 100%;
+
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* بطاقات المعلومات */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    background-color: #1e1e1e;
+    padding: 12px 18px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-right: 4px solid #ff5722; /* لمسة برتقالية جانبية */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.info-card .icon {
+    font-size: 1.8rem;
+}
+
+.info-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.info-card p {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+}
+
+/* نموذج المراسلة */
+.contact-form-container {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ff5722; /* يتغير الإطار للبرتقالي عند التركيز */
+}
+
+/* زر الإرسال */
+.submit-btn {
+    width: 100%;
+    background-color: #ff5722;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #e64a19; /* درجة برتقالية أغمق قليلاً عند التحويم */
+}
+/* خلفية النافذة المعتمة */
+.modal-overlay {
+  display: none; /* مخفية افتراضياً */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+}
+
+/* صندوق النافذة */
+.modal-content {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 20px 18px;
+  border-radius: 10px;
+  border: 1px solid #ff4500;
+  width: 90%;
+  max-width: 380px;
+  position: relative;
+  direction: rtl;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  animation: modalFadeIn 0.3s ease;
+}
+
+/* زر الإغلاق X */
+.modal-close {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  background: none;
+  border: none;
+  color: #aaaaaa;
+  font-size: 24px;
+  cursor: pointer;
+}
+.modal-close:hover {
+  color: #ff4500;
+}
+
+.modal-content h2 {
+  font-size: 20px;
+  margin-top: 0;
+  color: #ff4500;
+}
+
+.modal-divider {
+  border: 0;
+  height: 1px;
+  background: #333;
+  margin: 15px 0;
+}
+
+.modal-body p {
+  line-height: 1.8;
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #dddddd;
+}
+
+/* زر حسناً داخل النافذة */
+.modal-btn-ok {
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  width: 100%;
+}
+.modal-btn-ok:hover {
+  background-color: #e03d00;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MOTO Pro salim- متجر الدراجات النارية">
+  <title>MOTO PRO | متجر الدراجات النارية</title>
+  <link rel="preconnect" href="https://fonts.gogleapis.com">
+  <link rel="proconnect" href="https://fonts.gstatic.com"crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <
+</head>
+<body>
+
+  <header class="header">
+    <a href="#home" class="logo">
+    <img src="https://previews.123rf.com/images/artisttop/artisttop2305/artisttop230501311/205106916-motorbike-logo-icon-vector-illustration-isolated-on-white-background.jpg" alt="Logo" class="logo-img">
+    <span>MOTO</span>PRO
+  
+    <nav class="nav">
+      <a href="#home"><i class="fa-solid fa-house"></i>الرئيسية</a>
+      <a href="#products"><i class="fa-solid fa-motorcycle"></i>الدراجات</a>
+      <a href="#about"><i class="fa-solid fa-circle-info"></i>من نحن</a>
+      <a href="#contact"><i class="fa-solid fa-envelope"></i>اتصل بنا</a>
+    </nav>
+
+    <button id="openCart" class="cart-button" type="button">
+      🛒 السلة <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <h1>اختر دراجتك<br>وانطلق نحو <span>المغامرة</span></h1>
+        <p class="hero-description">
+          اكتشف مجموعة متنوعة من الدراجات الرياضية ودراجات الطرقات والمغامرات.
+        </p>
+      </div>
+    </section>
+
+    <section class="benefits">
+  <div>🏍️ <strong>موديلات متنوعة</strong></div>
+  <div class="btn-wrapper"><!-- استبدل السطر 15 بهذا السطر -->
+    <button type="button" class="mode-btn" onclick="showQualityGuarantee()">
+  🛡️ <strong>ضمان الجودة والخدمة الشاملة</strong>
+    </button>
+  </div>
+  <div class="modes-container">
+    <button id="mobileToggleBtn" class="mode-btn">📱 متوافق مع الهاتف</button>
+  </div>
+</section> 
+
+    <section class="products-section" id="products">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">اكتشف مجموعتنا</p>
+          <h2>الدراجات النارية</h2>
+          <p class="muted">اختر الدراجة المناسبة لك وأضفها إلى سلتك.</p>
+        </div>
+        <span id="productTotal" class="product-total">20 دراجة</span>
+      </div>
+
+      <div class="toolbar">
+        <input id="searchInput" type="search"
+          placeholder="🔍 ابحث عن دراجة..."
+          aria-label="البحث عن دراجة">
+
+        <select id="categoryFilter" aria-label="تصفية حسب النوع">
+          <option value="all">جميع الأنواع</option>
+          <option value="sport">رياضية</option>
+          <option value="street">طرقات</option>
+          <option value="adventure">مغامرات</option>
+          <option value="scooter">سكوتر</option>
+          <option value="cruiser">كروزر</option>
+        </select>
+
+        <select id="sortFilter" aria-label="ترتيب حسب السعر">
+          <option value="default">الترتيب الافتراضي</option>
+          <option value="price-low">السعر: من الأقل للأعلى</option>
+          <option value="price-high">السعر: من الأعلى للأقل</option>
+        </select>
+      </div>
+
+      <div id="productsGrid" class="products-grid"></div>
+      <p id="emptySearch" class="empty-message hidden">
+        لم نعثر على دراجات مطابقة لبحثك.
+      </p>
+    </section>
+
+    <section id="about" class="info-section">
+      <p class="eyebrow">MOTO PRO </p>
+      <h2>شغفك يبدأ من هنا</h2>
+      <p class="muted">
+        متجر  لاستعراض الدراجات النارية وإدارة سلة المشتريات.
+      </p>
+    </section>
+  </main>
+  <section class="contact-section" id="contact">
+    <div class="container">
+        <!-- عنوان القسم -->
+        <div class="section-header">
+            <h2>تواصل معنا</h2>
+            <p>يمكنك التواصل معنا للاستفسار عن المنتجات، راسلنا بالبريد الإلكتروني
+
+        <div class="contact-grid">
+            <!-- معلومات الاتصال والبطاقات -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="icon">📞</div>
+                    <div class="details">
+                        <h3>اتصل بنا</h3>
+                        <p>+212 617870584</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon">📧</div>
+                    <div class="details">
+                        <h3>البريد الإلكتروني</h3>
+                        <p>salimelatrach828@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon">📍</div>
+                    <div class="details">
+                        <h3>موقعنا</h3>
+                        <p>أغادير / تارودانت، المغرب</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نموذج المراسلة المربوط بـ Formspree -->
+            <div class="contact-form-container">
+                <form action="https://formspree.io/f/mrppdeyg" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">الرسالة</label>
+                        <textarea id="message" name="message" rows="4" placeholder="اكتب رسالتك أو استفسارك هنا..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <footer class="footer">
+    <a href="#home" class="logo">MOTO<span>PRO</span></a>
+  </footer>
+  <!-- نافذة سلة المشتريات -->
+  <div id="cartModal" class="modal hidden" aria-hidden="true">
+    <div id="cartBackdrop" class="modal-backdrop"></div>
+
+    <section class="cart-panel" role="dialog" aria-modal="true"
+      aria-labelledby="cartTitle">
+
+      <div class="cart-header">
+        <h2 id="cartTitle">🛒 سلة المشتريات</h2>
+        <button id="closeCart" class="close-button"
+          type="button" aria-label="إغلاق السلة">✕</button>
+      </div>
+
+      <div id="cartItems" class="cart-items"></div>
+
+      <div id="cartEmpty" class="cart-empty hidden">
+        <div class="empty-icon">🛒</div>
+        <h3>سلتك فارغة</h3>
+        <p class="muted">أضف دراجتك المفضلة لتظهر هنا.</p>
+        <button id="continueShopping" class="primary-button" type="button">
+          متابعة التسوق
+        </button>
+      </div>
+
+      <div id="cartFooter" class="cart-footer">
+        <div class="total-row">
+          <span>المجموع الإجمالي</span>
+          <strong id="cartTotal">0 درهم</strong>
+        </div>
+        <button id="checkoutButton" class="checkout-button" type="button">
+          إتمام الطلب
+        </button>
+        <p class="muted demo-note"</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- نافذة ملخص الطلب -->
+  <div id="checkoutModal" class="modal hidden" aria-hidden="true">
+    <div id="checkoutBackdrop" class="modal-backdrop"></div>
+
+    <section class="checkout-panel" role="dialog" aria-modal="true"
+      aria-labelledby="checkoutTitle">
+
+      <button id="closeCheckout" class="close-button" type="button"
+        aria-label="إغلاق">✕</button>
+
+      <div class="success-icon">✓</div>
+      <h2 id="checkoutTitle">ملخص طلبك</h2>
+      <p class="muted">هذا نموذج تجريبي ولا يتم إرسال طلب حقيقي.</p>
+
+      <div id="checkoutSummary" class="checkout-summary"></div>
+
+      <button id="finishCheckout" class="primary-button" type="button">
+        العودة إلى المتجر
+      </button>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="cartModal" class="cart-modal">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h2><i class="fa-solid fa-cart-shopping"></i>سلة المشتريات</h2>
+        <span class="close-btn" id="closeCart">&times;</span>
+      </div>
+      <div class="cart-body" id="cartItems">
+        <p class="empty-cart-msg">السلة فارغةحاليا</p>
+      </div>
+      <div class="cart-footer">
+        <div class="total-price">
+          <span>الاجمالي:</span>
+          <span id="cartTotal"> درهم 0</span>
+        </div>
+        <button id="checkout-btn" onclick="checkoutViaWhatsApp()">تاكيد الطلب عبر واتساب</button>
+      </div>
+    </div>
+  </div>
+  <!-- نافذة ضمان الجودة والخدمة المخصصة -->
+<div id="qualityModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeQualityGuarantee()">&times;</button>
+    
+    <h2>🛡️ ضمان الجودة والخدمة الشاملة</h2>
+    <hr class="modal-divider" />
+    
+    <div class="modal-body">
+      <p>• <strong>جودة مضمونة:</strong> نفحص جميع الدراجات بعناية للتأكد من سلامتها وأدائها العالي قبل التسليم.</p>
+      <p>• <strong>قطع غيار أصيلة:</strong> نضمن توفير قطع غيار وحلول صيانة موثوقة.</p>
+      <p>• <strong>خدمة وتنسيق متميز:</strong> تقديم الدعم الفني والإجابة عن جميع استفساراتكم لضمان تجربة قيادة آمنة وممتازة.</p>
+    </div>
+
+    <button class="modal-btn-ok" onclick="closeQualityGuarantee()">حسناً، فهمت</button>
+  </div>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>

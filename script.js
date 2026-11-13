@@ -72,7 +72,7 @@ const motorcycles = [
     name: "Ducati Panigale V4",
     category: "Sport",
     price: 280000,
-    image: "https://www.lerepairedesmotards.com/img/actu/2022/nouveaute/sportive-ducati-panigale-v4-r-route_hd.jpg",
+    image: "https://www.ducatiworcester.co.uk/img/ducati/2026-ducati-panigale-v4-lamborghini-lg.jpg",
     description: "تصميم إيطالي وأداء مميز"
   },
   {
@@ -913,16 +913,17 @@ const mobileToggleBtn = document.getElementById('mobileToggleBtn');
 const desktopViewBtn = document.getElementById('desktop-view-btn');
 
 if (mobileToggleBtn && desktopViewBtn) {
-  
-  // عند النقر على زر الهاتف -> تتפعل شاشة الهاتف ويظهر زر العودة للكمبيوتر
+
+  // تفعيل وضع الهاتف
   mobileToggleBtn.addEventListener('click', () => {
     document.body.classList.add('is-mobile-view');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // عند النقر على زر العودة للكمبيوتر -> تعود الشاشة لحجمها الطبيعي فوراً
+  // العودة إلى وضع الكمبيوتر
   desktopViewBtn.addEventListener('click', () => {
     document.body.classList.remove('is-mobile-view');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
 }

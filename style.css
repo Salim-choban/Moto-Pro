@@ -49,18 +49,17 @@ input:focus-visible, select:focus-visible {
 }
 
 .header {
-  min-height: 76px;
+  min-height: 70px;
   padding: 10px 15px;
   background: #10141c;
   border-bottom: 1px solid var(--border);
   display: flex;
-  flex-wrap:wrap;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   position: sticky;
   top: 0;
-  z-index: 20;
+  flex-wrap: nowrap;
 }
 
 .logo {
@@ -87,10 +86,9 @@ input:focus-visible, select:focus-visible {
 .nav {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-wrap:nowrap;
-  overflow: auto;
   justify-content: center;
+  gap: 16px;
+  flex-wrap: nowrap;
 }
 
 .nav a {
@@ -98,7 +96,7 @@ input:focus-visible, select:focus-visible {
  align-items: center;
  gap: 4px;
  text-decoration: none;
- font-size: 12px;
+ font-size: 13px;
  white-space: nowrap;
 }
 .nav a i{
@@ -696,26 +694,39 @@ primary-button, .checkout-button {
 
 @media (max-width: 760px) {
   .header {
-    padding: 10px 3%;
-    flex-wrap: nowrap;
-    gap: 10px;
-  }
-
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
   .logo {
     font-size: 22px;
   }
 
   .nav {
-    order: 3;
-    width: 100%;
-    overflow-x: auto;
-    gap: 20px;
-    padding: 4px 0;
-  }
+  order: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+  gap: 3px;
+  padding: 8px 0;
+}
 
-  .nav a {
-    white-space: nowrap;
-  }
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 1;
+  font-size: 11px;
+  gap: 2px;
+}
 
   .hero {
     grid-template-columns: 1fr;
@@ -1094,17 +1105,26 @@ body.is-mobile-view {
   background-color: #ff5722 !important;
   color: #ffffff !important;
 }
-/* مسافة الروابط في وضع الكمبيوتر فقط */
+/* ===== قائمة التنقل في جميع الأوضاع ===== */
 .nav {
   display: flex !important;
-  gap: 35px !important; /* ضع هنا المسافة التي تعجبك للكمبيوتر */
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  min-width: 0;
 }
 
-/* مسافة الروابط في وضع الهاتف فقط (يتم فصلها تماماً عن الكمبيوتر) */
-mobile-view .nav {
-  gap: 15px !important;
-  flex-wrap:wrap !important;
-  justify-content: center !important; /* ضع هنا المسافة الصغيرة الخاصة بالهاتف */
+.nav a {
+  white-space: nowrap !important;
+  flex-shrink: 1 !important;
+}
+
+/* ===== وضع الهاتف المحاكى فقط ===== */
+body.is-mobile-view .nav {
+  gap: 5px !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
 }
 /* تنسيق عام للقسم */
 .contact-section {
@@ -1333,4 +1353,94 @@ mobile-view .nav {
 @keyframes modalFadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+/* ترتيب وضع الكمبيوتر عند تصفح الموقع من الهاتف الحقيقي */
+/* ===== ترتيب الهيدر على الهاتف عند العودة للكمبيوتر ===== */
+@media (max-width: 760px) {
+
+  body:not(.is-mobile-view) .header {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    direction: ltr !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    padding: 8px 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* الشعار والعنوان في اليسار */
+  body:not(.is-mobile-view) .logo {
+    order: 1 !important;
+    font-size: 18px !important;
+    gap: 5px !important;
+    margin: 0 auto 0 0 !important;
+    flex-shrink: 1 !important;
+  }
+
+  body:not(.is-mobile-view) .logo img {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  /* السلة في اليمين */
+  body:not(.is-mobile-view) .cart-button {
+    order: 2 !important;
+    font-size: 12px !important;
+    padding: 7px 9px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* القائمة في سطر مستقل */
+  body:not(.is-mobile-view) .nav {
+    order: 3 !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    direction: rtl !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 3px !important;
+  }
+
+  body:not(.is-mobile-view) .nav a {
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+}
+/* إخفاء زر محاكاة الهاتف على الهاتف الحقيقي فقط */
+@media (max-width: 760px) {
+  #mobileToggleBtn,
+  #desktop-view-btn {
+    display: none !important;
+  }
+}
+/* ترتيب قسم المزايا على الهاتف الحقيقي */
+@media screen and (max-width: 760px) {
+
+  .benefits {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .benefits > * {
+    min-width: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+
+  #mobileToggleBtn,
+  #desktop-view-btn {
+    display: none !important;
+  }
 }
